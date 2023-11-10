@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="center">
+    <div class="text_center_title">
+        <h1>Upload Text File</h1>
+    </div>
+</div>
+<div class="center">
+    <div class="text_file_card">
+        <input type="file" class="form-control mb-3" id="fileInput" />
+        <button class="btn btn-primary" id="uploadFile">Upload Text File</button>
+    </div>
+</div>
+
+<table class="table text_file_table mt-3" id="dataTable">
+    <!-- Table contents -->
+</table>
+
+<script>
+    $('#uploadFile').click(e => {
+        const fileInput = $('#fileInput')[0];
+        const dataTable = $('#dataTable');
+
+        const file = fileInput.files[0];
+
+        if (file) {
+            const reader = new FileReader();
+
+            reader.onload = function (e) {
+                const content = e.target.result;
+                displayContent(content);
+            };
+
+            reader.readAsText(file);
+        } else {
+            alert('Please select a text file.');
+        }
+    });
+
+    function displayContent(content) {
+        const dataTable = document.getElementById('dataTable');
+        dataTable.innerHTML = ''; // Clear previous content
+
+        const lines = content.split('\n');
+
+        // Create header row
+        const headerRow = document.createElement('tr');
+        headerRow.classList.add('text_file_tr')
+        const headers = lines[0].split(',');
+        for (const header of headers) {
+            const th = document.createElement('th');
+            th.textContent = header.trim();
+            headerRow.appendChild(th);
+        }
+        dataTable.appendChild(headerRow);
+
+        // Create data rows
+        for (let i = 1; i < lines.length; i++) {
+            const dataRow = document.createElement('tr');
+            const values = lines[i].split(',');
+            for (const value of values) {
+                const td = document.createElement('td');
+                td.textContent = value.trim();
+                dataRow.appendChild(td);
+            }
+            dataTable.appendChild(dataRow);
+        }
+    }
+</script>

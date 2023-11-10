@@ -1,0 +1,36 @@
+﻿@model OOP_MVC_Practical.Models.AddEmployeeViewModel
+
+@{
+}
+
+
+<div class="center">
+    <h1 class="text_center_title">Add Employee</h1>
+</div>
+
+<div class="center">
+    <div class="form_card">
+        @if (TempData["Error_Message"] != null)
+        {
+            <div class="mt-3 mb-3">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    @TempData["Error_Message"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            </div>
+        }
+        <form method="POST" action="Add">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" asp-for="Name" class="form-control" aria-describedby="" placeholder="Enter Name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input type="number" asp-for="Age" class="form-control" aria-describedby="" placeholder="Enter Age">
+            </div>
+
+            <button type="submit" class="btn btn-primary add_btn">Submit</button>
+        </form>
+    </div>
+</div>

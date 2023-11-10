@@ -1,0 +1,38 @@
+﻿@model OOP_MVC_Practical.Models.UpdateEmployeeViewModel
+
+@{
+}
+
+<div class="center">
+    <h1 class="text_center_title">Edit Employee</h1>
+</div>
+<div class="center">        
+    <div class="form_card">
+        <form method="POST" action="View">
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" asp-for="Id" class="form-control" aria-describedby="" readonly>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Name</label>
+                <input type="text" asp-for="Name" class="form-control" aria-describedby="" placeholder="Enter Name">
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Age</label>
+                <input type="number" asp-for="Age" class="form-control" aria-describedby="" placeholder="Enter Age">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <button type="submit" class="btn btn-success" style="width: 100%;">Edit</button>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <button type="submit" asp-controller="Employee" asp-action="Delete" class="btn btn-danger" style="width: 100%;">Delete</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,66 @@
+﻿@model OOP_MVC_Practical.Models.FindAgeEmployeeViewModel
+
+@{
+}
+
+<h2>Youngest Employee</h2>
+
+<table class="table employee_table">
+    <thead class="employee_thead">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Designation</th>
+        </tr>
+    </thead>
+    @if (Model.Youngest != null)
+    {
+        <tbody>
+            <tr>
+                <td>@Model.Youngest.Name</td>
+                <td>@Model.Youngest.Age</td>
+                <td>@(Model.Youngest.Departments != null ? Model.Youngest.Departments : "No Status")</td>
+            </tr>
+        </tbody>
+    }
+    else
+    {
+        <tbody>
+            <tr>
+                <td rowspan="3">No Employee.</td>
+            </tr>
+        </tbody>
+    }
+</table>
+
+<hr/>
+
+<h2>Eldest Employee</h2>
+
+<table class="table employee_table">
+    <thead class="employee_thead">
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Designation</th>
+        </tr>
+    </thead>
+    @if (Model.Eldest != null)
+    {
+        <tbody>
+            <tr>
+                <td>@Model.Eldest.Name</td>
+                <td>@Model.Eldest.Age</td>
+                <td>@(Model.Eldest.Departments != null ? Model.Eldest.Departments : "No Status")</td>
+            </tr>
+        </tbody>
+    }
+    else
+    {
+        <tbody>
+            <tr>
+                <td rowspan="3">No Employee.</td>
+            </tr>
+        </tbody>
+    }
+</table>
